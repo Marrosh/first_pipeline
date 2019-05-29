@@ -7,10 +7,16 @@ pipeline {
                     cmakeInstallation('InSearchPath')
                     generator('Unix Makefiles')
                     cleanBuild()
-                    sourceDir('')
-                    buildDir('build')
+                    sourceDir('src')
+                    buildDir('target')
+                    args('foo')
+                    args('bar')
                     buildToolStep {
-                        useCmake(true)
+                        vars('KEY', 'VALUE')
+                        useCmake()
+                    }
+                    buildToolStep {
+                        useCmake(false)
                     }
                 }
             }
