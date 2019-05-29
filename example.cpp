@@ -15,7 +15,7 @@ int main()
     sum = add(num1, num2);
     cout << "Sum = " << sum;
     
-    vector* vp = new vector<int>;
+    vector<int>* vp = new vector<int>;
     //delete vp;
     return 0;
 }
