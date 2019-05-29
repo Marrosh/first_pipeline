@@ -1,9 +1,15 @@
 pipeline {
-    agent any
+    agent { docker { image 'cmake-valgrind' } }
     stages {
         stage('build') {
             steps {
-                sh 'java --version'
+                cmake arguments: '-DCMAKE_CXX_FLAGS=-std=c++11', installation: 'InSearchPath'
+                sh 'make'
+            }
+            
+        stage('memtest') {
+            steps {
+                sh 'valgrind Example'
             }
         }
     }
