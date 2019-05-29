@@ -3,22 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                cmake {
-                    cmakeInstallation('InSearchPath')
-                    generator('Unix Makefiles')
-                    cleanBuild()
-                    sourceDir('src')
-                    buildDir('target')
-                    args('foo')
-                    args('bar')
-                    buildToolStep {
-                        vars('KEY', 'VALUE')
-                        useCmake()
-                    }
-                    buildToolStep {
-                        useCmake(false)
-                    }
-                }
+                cmake arguments: '-DCMAKE_CXX_FLAGS=-std=c++11', installation: 'InSearchPath'
+                cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
     }
