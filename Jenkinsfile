@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'cmake --version'
+                cmake arguments: '-DCMAKE_CXX_FLAGS=-std=c++11', installation: 
+'InSearchPath'
             }
         }
     }
