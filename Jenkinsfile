@@ -6,7 +6,8 @@ pipeline {
                 cmake arguments: '-DCMAKE_CXX_FLAGS=-std=c++11', installation: 'InSearchPath'
                 sh 'make'
             }
-            
+        }
+        
         stage('memtest') {
             steps {
                 sh 'valgrind Example'
