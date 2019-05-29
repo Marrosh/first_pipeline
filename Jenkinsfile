@@ -11,7 +11,7 @@ pipeline {
         
         stage('memtest') {
             steps {
-                sh 'valgrind ./Example'
+                sh 'valgrind --error-exitcode=1 --leak-check=full ./Example'
             }
         }
     }
