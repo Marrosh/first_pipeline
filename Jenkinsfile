@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 cmake {
-                    cmakeInstallation("InSearchPath")
+                    cmakeInstallation('InSearchPath')
                     generator('Unix Makefiles')
                     cleanBuild()
                     sourceDir()
