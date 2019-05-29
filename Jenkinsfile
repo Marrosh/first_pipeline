@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'slaves/cmake' } }
+    agent { docker { image 'lycantropos/cmake' } }
     stages {
         stage('build') {
             steps {
