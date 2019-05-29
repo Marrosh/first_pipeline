@@ -4,10 +4,10 @@ pipeline {
         stage('build') {
             steps {
                 cmake {
-                    cmakeInstallation('InSearchPath')
+                    installation('InSearchPath')
                     generator('Unix Makefiles')
                     cleanBuild()
-                    sourceDir()
+                    sourceDir('')
                     buildDir('build')
                     buildToolStep {
                         useCmake(true)
