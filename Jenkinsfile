@@ -3,13 +3,15 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                cmakeInstallation('InSearchPath')
-                generator('Unix Makefiles')
-                cleanBuild()
-                sourceDir('')
-                buildDir('build')
-                buildToolStep {
-                    useCmake(true)
+                cmake {
+                    cmakeInstallation('InSearchPath')
+                    generator('Unix Makefiles')
+                    cleanBuild()
+                    sourceDir('')
+                    buildDir('build')
+                    buildToolStep {
+                        useCmake(true)
+                    }
                 }
             }
         }
