@@ -1,5 +1,6 @@
 #include <iostream>
 #include <new>
+#include <vector>
 #include "example.hpp"
 
 using namespace std;
